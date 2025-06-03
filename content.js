@@ -73,4 +73,5 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     toggleBionicText();
     sendResponse({ status: 'success', bionicEnabled });
   }
+  return true; // Keep the message channel open for the async response
 });

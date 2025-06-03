@@ -29,19 +29,15 @@ Bionic text highlights the first half of each word, which helps guide your eyes 
    ```
 
 2. Generate proper icon files:
-   - The extension comes with placeholder icons in the `icons` folder
-   - For better-looking icons, you can:
-     - Open `icons/generate_icons.html` in a web browser
-     - Right-click on each icon and save them with the appropriate names
-     - Alternatively, use the SVG files provided and convert them to PNG
+   - The extension now uses SVG icons in the `icons` folder
    - Required icon files:
-     - `icon16.png` (16x16 pixels)
-     - `icon48.png` (48x48 pixels)
-     - `icon128.png` (128x128 pixels)
-   - Optional active state icons (not currently used in the manifest):
-     - `icon16-active.png` (16x16 pixels, active state)
-     - `icon48-active.png` (48x48 pixels, active state)
-     - `icon128-active.png` (128x128 pixels, active state)
+     - `icon16.svg` (16x16 pixels)
+     - `icon48.svg` (48x48 pixels)
+     - `icon128.svg` (128x128 pixels)
+   - Active state icons (used when bionic text is enabled):
+     - `icon16-active.svg` (16x16 pixels, active state)
+     - `icon48-active.svg` (48x48 pixels, active state)
+     - `icon128-active.svg` (128x128 pixels, active state)
 
 3. Load the extension in Chrome:
    - Open Chrome and navigate to `chrome://extensions/`
@@ -79,14 +75,25 @@ Bionic text highlights the first half of each word, which helps guide your eyes 
 4. The text on the page will be converted to bionic format
 5. Click the icon again to revert to normal text
 
+## Recent Updates
+
+### Icon System Update
+- Changed from PNG to SVG format for all icons
+- Added active state icons that display when bionic text is enabled
+- Fixed icon loading errors in developer mode
+- Updated background.js to handle PDF files and use the new icon system
+
+### PDF Support
+- Added support for PDF files viewed directly in Chrome
+- The extension now detects PDF content and injects the content script accordingly
+
 ## Development
 
 ### Project Structure
-
 - `manifest.json`: Extension configuration
-- `background.js`: Handles extension icon clicks
+- `background.js`: Handles extension icon clicks and PDF detection
 - `content.js`: Contains the logic for converting text to bionic format
-- `icons/`: Directory containing extension icons
+- `icons/`: Directory containing extension icons (SVG format)
 
 ### Customization
 
