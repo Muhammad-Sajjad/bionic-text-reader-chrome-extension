@@ -19,7 +19,7 @@ function convertToBionicText(text) {
 }
 
 // Function to process text nodes
-function processBionicText(node) {
+function processBionicText(node, isPdf = false) {
   if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
     // Create a span element to hold the bionic text
     const span = document.createElement('span');
@@ -41,7 +41,7 @@ function processBionicText(node) {
     
     // Process child nodes (make a copy of the list as it will change during iteration)
     const childNodes = Array.from(node.childNodes);
-    childNodes.forEach(child => processBionicText(child));
+    childNodes.forEach(child => processBionicText(child, isPdf));
   }
 }
 
@@ -57,12 +57,12 @@ function restoreOriginalText() {
 }
 
 // Function to toggle bionic text
-function toggleBionicText() {
+function toggleBionicText(isPdf = false) {
   if (bionicEnabled) {
     restoreOriginalText();
     bionicEnabled = false;
   } else {
-    processBionicText(document.body);
+    processBionicText(document.body, isPdf);
     bionicEnabled = true;
   }
 }
@@ -70,7 +70,7 @@ function toggleBionicText() {
 // Listen for messages from the background script
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'toggleBionicText') {
-    toggleBionicText();
+    toggleBionicText(message.isPdf);
     sendResponse({ status: 'success', bionicEnabled });
   }
 });
