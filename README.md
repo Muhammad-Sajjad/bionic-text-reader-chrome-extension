@@ -1,22 +1,31 @@
 # Bionic Text Reader Chrome Extension
 
-A Chrome extension that converts webpage text to bionic text format for faster reading. Bionic reading is a reading method where the first half of each word is highlighted to guide the eye through text more efficiently.
+A Chrome extension that converts webpage text and PDF documents to bionic text format for faster reading. Bionic reading is a reading method where the first half of each word is highlighted to guide the eye through text more efficiently.
 
 ## Features
 
 - Converts all text on a webpage to bionic format with a single click
+- Works with PDF documents opened in Chrome
 - Preserves all website styling, layout, and functionality
 - Toggle between normal and bionic text
-- Works on any website
+- Works on any website and local PDF files
 
 ## How It Works
 
 Bionic text highlights the first half of each word, which helps guide your eyes through text more efficiently. This extension:
 
-1. Finds all text nodes on the current webpage
+1. Finds all text nodes on the current webpage or PDF document
 2. Converts each word to bionic format (first half bold, second half normal)
 3. Preserves all HTML structure and styling
 4. Allows toggling between normal and bionic text
+
+### PDF Support
+
+The extension now works with PDF documents opened in Chrome:
+- Detects when a PDF is being viewed
+- Applies bionic formatting to the PDF text layers
+- Maintains PDF functionality (scrolling, searching, etc.)
+- Dynamically processes new pages as you scroll through the document
 
 ## Installation
 
@@ -74,17 +83,26 @@ Bionic text highlights the first half of each word, which helps guide your eyes 
 ## Usage
 
 1. Install the extension from the Chrome Web Store or using the development installation steps
-2. Navigate to any webpage
+2. Navigate to any webpage or open a PDF document in Chrome
 3. Click the Bionic Text Reader icon in your browser toolbar
-4. The text on the page will be converted to bionic format
+4. The text on the page or PDF will be converted to bionic format
 5. Click the icon again to revert to normal text
+
+### Using with PDFs
+
+1. Open a PDF file in Chrome (either from the web or a local file)
+2. Wait for the PDF to fully load
+3. Click the Bionic Text Reader icon in your browser toolbar
+4. The text in the PDF will be converted to bionic format
+5. As you scroll through the PDF, new pages will automatically be converted
+6. Click the icon again to revert to normal text
 
 ## Development
 
 ### Project Structure
 
 - `manifest.json`: Extension configuration
-- `background.js`: Handles extension icon clicks
+- `background.js`: Handles extension icon clicks and PDF detection
 - `content.js`: Contains the logic for converting text to bionic format
 - `icons/`: Directory containing extension icons
 
