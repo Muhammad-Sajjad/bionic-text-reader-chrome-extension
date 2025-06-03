@@ -28,11 +28,17 @@ Bionic text highlights the first half of each word, which helps guide your eyes 
    cd bionic-text-reader-chrome-extension
    ```
 
-2. Create icon files:
-   - Place PNG icons in the `icons` folder with the following names:
+2. Generate proper icon files:
+   - The extension comes with placeholder icons in the `icons` folder
+   - For better-looking icons, you can:
+     - Open `icons/generate_icons.html` in a web browser
+     - Right-click on each icon and save them with the appropriate names
+     - Alternatively, use the SVG files provided and convert them to PNG
+   - Required icon files:
      - `icon16.png` (16x16 pixels)
      - `icon48.png` (48x48 pixels)
      - `icon128.png` (128x128 pixels)
+   - Optional active state icons (not currently used in the manifest):
      - `icon16-active.png` (16x16 pixels, active state)
      - `icon48-active.png` (48x48 pixels, active state)
      - `icon128-active.png` (128x128 pixels, active state)

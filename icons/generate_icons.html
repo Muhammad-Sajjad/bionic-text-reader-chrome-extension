@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Generate Icons for Bionic Text Reader</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .icon-container {
+      margin-bottom: 40px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    canvas {
+      border: 1px solid #ddd;
+      margin-bottom: 10px;
+    }
+    button {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 10px;
+    }
+    button:hover {
+      background-color: #3b78e7;
+    }
+    h1, h2 {
+      color: #4285f4;
+    }
+    .instructions {
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Bionic Text Reader Icon Generator</h1>
+  
+  <div class="instructions">
+    <h3>Instructions:</h3>
+    <ol>
+      <li>Click the "Generate Icons" button below to create the icons</li>
+      <li>Right-click on each canvas and select "Save Image As..."</li>
+      <li>Save each icon with the appropriate name (icon16.png, icon48.png, icon128.png)</li>
+      <li>Place the saved icons in the "icons" directory of your extension</li>
+    </ol>
+  </div>
+  
+  <button onclick="generateIcons()">Generate Icons</button>
+  
+  <div class="icon-container">
+    <h2>16x16 Icon</h2>
+    <canvas id="canvas16" width="16" height="16"></canvas>
+    <p>Save as: <strong>icon16.png</strong></p>
+  </div>
+  
+  <div class="icon-container">
+    <h2>48x48 Icon</h2>
+    <canvas id="canvas48" width="48" height="48"></canvas>
+    <p>Save as: <strong>icon48.png</strong></p>
+  </div>
+  
+  <div class="icon-container">
+    <h2>128x128 Icon</h2>
+    <canvas id="canvas128" width="128" height="128"></canvas>
+    <p>Save as: <strong>icon128.png</strong></p>
+  </div>
+  
+  <script>
+    function generateIcons() {
+      // Generate 16x16 icon
+      const canvas16 = document.getElementById('canvas16');
+      const ctx16 = canvas16.getContext('2d');
+      
+      // Background
+      ctx16.fillStyle = '#4285f4';
+      ctx16.fillRect(0, 0, 16, 16);
+      
+      // Text
+      ctx16.fillStyle = 'white';
+      ctx16.font = 'bold 10px Arial';
+      ctx16.textAlign = 'center';
+      ctx16.textBaseline = 'middle';
+      ctx16.fillText('B', 8, 8);
+      
+      // Generate 48x48 icon
+      const canvas48 = document.getElementById('canvas48');
+      const ctx48 = canvas48.getContext('2d');
+      
+      // Background
+      ctx48.fillStyle = '#4285f4';
+      ctx48.fillRect(0, 0, 48, 48);
+      
+      // Text
+      ctx48.fillStyle = 'white';
+      ctx48.font = 'bold 20px Arial';
+      ctx48.textAlign = 'center';
+      ctx48.textBaseline = 'middle';
+      ctx48.fillText('BTR', 24, 24);
+      
+      // Generate 128x128 icon
+      const canvas128 = document.getElementById('canvas128');
+      const ctx128 = canvas128.getContext('2d');
+      
+      // Background
+      ctx128.fillStyle = '#4285f4';
+      ctx128.fillRect(0, 0, 128, 128);
+      
+      // Main text
+      ctx128.fillStyle = 'white';
+      ctx128.font = 'bold 40px Arial';
+      ctx128.textAlign = 'center';
+      ctx128.textBaseline = 'middle';
+      ctx128.fillText('BTR', 64, 55);
+      
+      // Subtitle
+      ctx128.font = '16px Arial';
+      ctx128.fillText('Bionic Text', 64, 85);
+    }
+    
+    // Generate icons on page load
+    window.onload = generateIcons;
+  </script>
+</body>
+</html>
