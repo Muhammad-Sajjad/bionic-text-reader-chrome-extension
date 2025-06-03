@@ -2,8 +2,9 @@
   "manifest_version": 3,
   "name": "Bionic Text Reader",
   "version": "1.0",
-  "description": "Converts webpage text to bionic text for faster reading",
+  "description": "Converts webpage text and PDFs to bionic text for faster reading",
   "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["*://*/*"],
   "action": {
     "default_icon": {
       "16": "icons/icon16.png",
@@ -17,9 +18,16 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["<all_urls>", "*://*/*.pdf"],
       "js": ["content.js"],
-      "run_at": "document_idle"
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content.js"],
+      "matches": ["<all_urls>"]
     }
   ],
   "icons": {
